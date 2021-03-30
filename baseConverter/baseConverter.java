@@ -2,6 +2,9 @@ import java.util.Scanner;
 import java.util.regex.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.List;
 
 public class baseConverter {
     public static int globalTransferVar;
@@ -117,20 +120,49 @@ public class baseConverter {
 
         /*---------------- Convert Section --------------*/
 
-        inputNumber = inputNumber.replace(",", ".");
         System.out.println(inputNumber);
 
         double value = 0.0;
 
         boolean notReady = true;
         int length1;
-        ArrayList<String> valueList = new ArrayList<String>();
-        valueList = Arrays.asList(inputNumber);
-        System.out.print(valueList.get(0).getClass().getName());
+        // List<String> valueList = Stream.of(inputNumber).collect(Collectors.toList());
+        // // What is wrong with Java? This.
+        char[] valueArray = inputNumber.toCharArray();
+        // valueList = Arrays.asList(inputNumber);
+        // System.out.println(valueList.get(0).getClass().getName());
+        // System.out.println(valueList.size());
+        int flpoint = 0; // 0 = No point. 1 =
+        int pointpos = -1;
+        for (int i = valueArray.length - 1; i >= 0; i--) { // Takes European "," and international "." as floating
+                                                           // point.
+            // System.out.println(valueArray[i]);
+            if (valueArray[i] == '.') {
+                flpoint = 2;
+                pointpos = i;
+            }
+            if (valueArray[i] == ',') {
+                flpoint = 1;
+                pointpos = i;
+            }
 
-        for (String digit : valueList) {
-            System.out.print(digit);
         }
+        // inputNumber = inputNumber.replace(",", ".");
+
+        switch (flpoint) {
+        case 0:
+            System.out.print("no");
+            break;
+        case 1:
+            System.out.print("Comma");
+            break;
+        case 2:
+            System.out.print("Point");
+            break;
+        default:
+            throw new Error("This shouldn't happen");
+        }
+        System.out.println(" at " + pointpos);
 
     }
 
