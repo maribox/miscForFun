@@ -2,12 +2,10 @@ import pyautogui as pag
 from pynput import keyboard
 import time
 notReact = False
-playing = False
 
 
 def on_press(key):
     global notReact
-    global playing
     print(notReact)
     if not notReact:
         notReact = True
@@ -16,13 +14,15 @@ def on_press(key):
                 pag.click(882, 60)
                 playing = False
             else:
-                pag.click(831, 61)
+                pag.click(831, 61) 
                 playing = True
+            
             pag.hotkey("shift", "space")
             notReact = False
     else:
         time.sleep(0.5)
         notReact = False
+    
         
 
 def on_release(key):
