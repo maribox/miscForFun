@@ -3,6 +3,7 @@ def stabprint(*args):
     for arg in args:
         arglen.append(len(str(arg)))
     leng = max(arglen)
+    
     for arg in args:
         print(arg, end = ((leng-len(str(arg))+1)*" " + "| "))
         print("\u25a0"*arg)

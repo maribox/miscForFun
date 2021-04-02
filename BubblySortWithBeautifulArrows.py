@@ -98,7 +98,7 @@ list = [32, 324, 234,2342, 124, 2, 16346346, 123, 31245, 69420, 1337, 42, 420, 5
 
 
 # Bubble Sort
-# Goes through every element i and proves if there is a
+# Goes through every element i and tests if there is a
 # element j to the right that is smaller than the
 # current element i
 for i in range(len(list)):
