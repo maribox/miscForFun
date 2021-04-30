@@ -3,7 +3,9 @@
 #include <time.h>
 #include <unistd.h>
 
-int main() { 
+int main() { // You input number over 10000, program spits out if its equally distributed or if the dice is marked. 
+	     // Really stupid and ugly, especially because I tried to avoid Arrays (I don't know why you would do that. I just did, ok?) 
+	     // Little reminder to myself: Don't look at this. Press ESC + q!. 
 	int repeats;
 	int ones = 0, twos = 0, threes = 0, fours = 0, fives = 0, sixes = 0;
 	int temp;
