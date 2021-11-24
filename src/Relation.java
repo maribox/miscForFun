@@ -72,6 +72,7 @@ public class Relation {
         // System.out.println("Added (" + from + ", " + to + ")");
     }
 
+
     public void addVertex(int vertex) {
         vertices.add(vertex);
     }
